@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             BackgroundColor="#FFC570"
+             Visual="Material"
+             x:Class="PNRSched.About">
+    <ContentPage.Content>
+        <yummy:PancakeView BackgroundColor="White"
+                               CornerRadius="0,0,50,50"
+                               Padding="0"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                           Margin="0,0,0,10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+                <ffimageloading:CachedImage Grid.Row="0"
+                                        Source="subway.png"
+                                        Aspect="AspectFill"
+                                        BitmapOptimizations="True"
+                                        DownsampleToViewSize="True"
+                                        Margin="0,0,0,150">
+                </ffimageloading:CachedImage>
+
+                <Frame BackgroundColor="White"
+                           Padding="0"
+                           Grid.Row="0" 
+                           Grid.RowSpan="2" 
+                           Margin="0,150,0,0">
+                    <Grid Margin="0,0,0,0" RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition Height="45"/>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView Grid.Column="0"
+                                 Grid.ColumnSpan="2" 
+                                 Style="{StaticResource FirstBOX}"
+                                 BackgroundColor="DarkGray"
+                                 HeightRequest="1"
+                                 VerticalOptions="End"
+                                 Margin="5,0,5,0"/>
+
+                        <BoxView Grid.Column="0"
+                                 Grid.ColumnSpan="2" 
+                                 Style="{StaticResource SecondBOX}"
+                                 BackgroundColor="DarkGray"
+                                 HeightRequest="1"
+                                 VerticalOptions="End"
+                                 Margin="5,0,5,0"/>
+
+                        <ffimageloading:CachedImage Source="update.png"
+                                                    BitmapOptimizations="True"
+                                                    DownsampleToViewSize="True"
+                                                    Grid.Column="0"
+                                                    Grid.Row="1"
+                                                    Style="{StaticResource Images}"
+                                                    Aspect="AspectFit"/>
+
+                        <ffimageloading:CachedImage Source="contact.png"
+                                                    BitmapOptimizations="True"
+                                                    DownsampleToViewSize="True"
+                                                    Grid.Column="0"
+                                                    Grid.Row="2"
+                                                    Style="{StaticResource Images}"
+                                                    Aspect="AspectFit"/>
+
+                        <ffimageloading:CachedImage Source="notif.png"
+                                                    BitmapOptimizations="True"
+                                                    DownsampleToViewSize="True"
+                                                    Grid.Column="0"
+                                                    Grid.Row="3"
+                                                    Style="{StaticResource NotifImage}"    
+                                                    Aspect="AspectFit"/>
+                        <Label Text="Settings"
+                               TextColor="Black"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               Style="{StaticResource LabelSETTINGS}"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="2"
+                               x:Name="labelTEST"/>
+
+                        <Label Text="Check for app update"
+                               TextColor="Black"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource ListVIEW}"
+                               Grid.Column="1"
+                               Grid.Row="1">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Update_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label Text="Contact the developer"
+                               TextColor="Black"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource ListVIEW}"
+                               Grid.Column="1"
+                               Grid.Row="2">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Contact_Clicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Expander Style="{StaticResource Expander}" CollapseAnimationLength="500" Grid.Column="1" Grid.Row="3" x:Name="expander">
+                            <Expander.Header>
+                                <Grid>
+                                    <Label Text="Notify for schedules"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderItinerary}"/>
+                                    <Image Source="expand.png"
+                                           HorizontalOptions="End"
+                                           VerticalOptions="Start"
+                                           Aspect="AspectFit"
+                                           Margin="0,0,20,0">
+                                        <Image.Triggers>
+                                            <DataTrigger TargetType="Image"
+                                                         Binding="{Binding Source={RelativeSource AncestorType={x:Type Expander}}, Path=IsExpanded}"
+                                                         Value="True">
+                                                <Setter Property="Source"
+                                                        Value="collapse.png" />
+                                            </DataTrigger>
+                                        </Image.Triggers>
+                                    </Image>
+                                </Grid>
+                            </Expander.Header>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Picker Title="Select a route" Margin="0,0,20,0" x:Name="routePCKR" Grid.Row="0" PropertyChanged="routePCKR_PropertyChanged"
+                                            Style="{StaticResource Pickers}">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>TUTUBAN - GOV. PASCUAL</x:String>
+                                            <x:String>GOV. PASCUAL - TUTUBAN</x:String>
+                                            <x:String>BICUTAN - GOV. PASCUAL</x:String>
+                                            <x:String>GOV.PASCUAL - BICUTAN</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+
+                                <Picker Title="Select station" Margin="0,0,20,0" x:Name="tutubanGPPCKR" Grid.Row="1"
+                                        IsVisible="False" IsEnabled="False" Style="{StaticResource Pickers}">
+                                    <!--tutubangp-->
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>TUTUBAN</x:String>
+                                            <x:String>SOLIS</x:String>
+                                            <x:String>5TH AVENUE</x:String>
+                                            <x:String>ASISTIO</x:String>
+                                            <x:String>SANGANDAAN</x:String>
+                                            <x:String>GOV.PASCUAL</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+
+                                </Picker>
+                                <!--tutubangp-->
+
+                                <Picker Title="Select station" Margin="0,0,20,0" x:Name="gptutubanPCKR" Grid.Row="1" 
+                                        IsVisible="False" IsEnabled="False" Style="{StaticResource Pickers}">
+                                    <!--gptutuban-->
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>GOV. PASCUAL</x:String>
+                                            <x:String>SANGANDAAN</x:String>
+                                            <x:String>ASISTIO</x:String>
+                                            <x:String>5TH AVENUE</x:String>
+                                            <x:String>SOLIS</x:String>
+                                            <x:String>TUTUBAN</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <!--gpttuban-->
+
+                                <Picker Title="Select station" Margin="0,0,20,0" x:Name="bicutangpPCKR" Grid.Row="1" 
+                                        IsVisible="False" IsEnabled="False" Style="{StaticResource Pickers}">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>BICUTAN</x:String>
+                                            <x:String>FTI</x:String>
+                                            <x:String>NICHOLS</x:String>
+                                            <x:String>EDSA</x:String>
+                                            <x:String>PASAY ROAD</x:String>
+                                            <x:String>DELA ROSA</x:String>
+                                            <x:String>VITO CRUZ</x:String>
+                                            <x:String>SAN ANDRES</x:String>
+                                            <x:String>PACO</x:String>
+                                            <x:String>PANDACAN</x:String>
+                                            <x:String>STA. MESA</x:String>
+                                            <x:String>ESPAÑA</x:String>
+                                            <x:String>LAON LAAN</x:String>
+                                            <x:String>BLUMENTRITT</x:String>
+                                            <x:String>SOLIS</x:String>
+                                            <x:String>5TH AVENUE</x:String>
+                                            <x:String>ASISTIO</x:String>
+                                            <x:String>SANGANDAAN</x:String>
+                                            <x:String>GOV. PASCUAL</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <!--bicutangp-->
+
+                                <Picker Title="Select station" Margin="0,0,20,0" x:Name="gpbicutanPCKR" Grid.Row="1" 
+                                        IsVisible="False" IsEnabled="False" Style="{StaticResource Pickers}">
+                                    <Picker.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>GOV.PASCUAL</x:String>
+                                            <x:String>SANGANDAAN</x:String>
+                                            <x:String>ASISTIO</x:String>
+                                            <x:String>5TH AVENUE</x:String>
+                                            <x:String>SOLIS</x:String>
+                                            <x:String>BLUMENTRITT</x:String>
+                                            <x:String>LAON LAAN</x:String>
+                                            <x:String>ESPAÑA</x:String>
+                                            <x:String>STA. MESA</x:String>
+                                            <x:String>PANDACAN</x:String>
+                                            <x:String>PACO</x:String>
+                                            <x:String>SAN ANDRES</x:String>
+                                            <x:String>VITO CRUZ</x:String>
+                                            <x:String>DELA ROSA</x:String>
+                                            <x:String>PASAY ROAD</x:String>
+                                            <x:String>EDSA</x:String>
+                                            <x:String>NICHOLS</x:String>
+                                            <x:String>FTI</x:String>
+                                            <x:String>BICUTAN</x:String>
+                                        </x:Array>
+                                    </Picker.ItemsSource>
+                                </Picker>
+                                <!--gpbicutan-->
+
+                                <Button Text="Notify"
+                                            HorizontalOptions="Center"
+                                            BackgroundColor="#FFB03B"
+                                            Clicked="Button_Clicked"
+                                            Grid.Row="2"
+                                            Margin="0,0,100,0"
+                                            x:Name="btnNOTIF"
+                                            Style="{StaticResource FirstBTN}"/>
+
+                                <Button HorizontalOptions="EndAndExpand"
+                                        Margin="0,0,20,0" 
+                                        Grid.Row="2"
+                                        Clicked="CancelButton_Clicked_1"
+                                        x:Name="btnCANCEL"
+                                        Style="{StaticResource SecondBTN}"/>
+                            </Grid>
+                        </Expander>
+
+                        <ffimageloading:CachedImage Source="vector.jpg"
+                                                    Grid.Column="1"
+                                                    Grid.Row="4"
+                                                    DownsampleToViewSize="True"
+                                                    BitmapOptimizations="True"
+                                                    HorizontalOptions="Start"
+                                                    Style="{StaticResource DevFACE}">
+                            <ffimageloading:CachedImage.Transformations>
+                                <fftransformations:CircleTransformation/>
+                            </ffimageloading:CachedImage.Transformations>
+                        </ffimageloading:CachedImage>
+
+                        <Label Text="Echo Lumaque&#10;The Developer();"
+                               TextColor="Black"
+                               FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium"
+                               Grid.Column="1"
+                               Grid.Row="4"
+                               HorizontalOptions="Center"
+                               Style="{StaticResource DevNAME}"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </yummy:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

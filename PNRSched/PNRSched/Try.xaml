@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PNRSched.Try"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:controls="clr-namespace:Xam.Plugin.SimpleBottomDrawer;assembly=Xam.Plugin.SimpleBottomDrawer"
+    xmlns:pnrsched="clr-namespace:PNRSched"
+    Visual="Material">
+
+
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="9.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4.5*"/>
+                    <RowDefinition Height="1.5*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="pnr_tren.png"
+                       Aspect="AspectFit"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"/>
+
+                <Label Margin="20,0,20,0"
+                       Text="Where will be &#10;your next trip?"
+                       FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                       FontSize="50"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="1"/>
+
+                <Picker Margin="20,0,20,0"
+                            Title="From"
+                            HorizontalOptions="Fill"
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            x:Name="pckrORIG"/>
+
+                <Picker Margin="20,0,20,0"
+                            Title="To"
+                            HorizontalOptions="Fill"
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            x:Name="pckrDEST"/>
+
+                <Image Source="orig_loc.png"
+                           Aspect="AspectFit"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           Margin="0,0,20,10"/>
+
+                <Image Source="dest_loc.png"
+                           Aspect="AspectFit"
+                           Grid.Column="1"
+                           Grid.Row="3"
+                           Margin="0,0,20,10"/>
+
+                <Entry Margin="20,0,20,0"
+                                x:Name="entryTIME1"
+                                HorizontalOptions="Fill"
+                                Placeholder="When"
+                                FontFamily="SF-Compact-Text-Medium.otf# SF Compact Text Medium"
+                                Grid.Column="0"
+                                Grid.Row="4"
+                                Grid.ColumnSpan="2"
+                                Focused="EntryTIME1_Focused"
+                                BackgroundColor="White"/>
+
+                <Image Source="calendar.png"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       Aspect="AspectFit"
+                       Margin="0,0,20,10"/>
+
+                <TimePicker Grid.Column="0"
+                         Grid.Row="4"
+                         Grid.ColumnSpan="2"
+                         Margin="20,0,20,10"
+                         x:Name="timePCKR"
+                         IsVisible="False"
+                         IsEnabled="False"/>
+                    
+                <yummy:PancakeView CornerRadius="80,0,0,80"
+                                   HorizontalOptions="End"
+                                   Grid.Column="0"
+                                   Grid.Row="6"
+                                   Grid.ColumnSpan="2"
+                                   WidthRequest="180">
+
+                    <pnrsched:GradientButton Text="View Schedule"
+                                             TextColor="White"
+                                             StartColor="#FFA927"
+                                             EndColor="#FFD391"
+                                             GradientOrientation="Horizontal"
+                                             Clicked="GradientButton_Clicked"
+                                             Visual="Default"/>
+                </yummy:PancakeView>
+            </Grid>
+
+            <controls:BottomDrawer
+                x:Name="btmSHEET"
+                Padding="0"
+                BackgroundColor="White"
+                IsVisible="False"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1,
+                                                                       Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1,
+                                                                      Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=1,
+                                                                  Constant=-65}">
+                <controls:BottomDrawer.GestureRecognizers>
+                    <PanGestureRecognizer PanUpdated="PanGestureRecognizer_PanUpdated"/>
+                </controls:BottomDrawer.GestureRecognizers>
+                <StackLayout Spacing="0" HeightRequest="3000">
+                    <BoxView
+                        Margin="20,16,20,-5"
+                        BackgroundColor="Gray"
+                        CornerRadius="2"
+                        HeightRequest="3"
+                        HorizontalOptions="Center"
+                        WidthRequest="80" />
+                    <Label
+                        Margin="16"
+                        FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                        FontSize="35"
+                        Text="Your itenarary:"
+                        TextColor="Black" />
+
+                    <ScrollView x:Name="sview1" Orientation="Vertical" Margin="0,30,0,0" HeightRequest="3000">
+                        <StackLayout Margin="10,10,10,0" Orientation="Vertical" Spacing="15" HeightRequest="3000">
+                            <Grid Margin="20,0,20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*"/>
+                                <ColumnDefinition Width=".5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="Type"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Grid.Column="0" Grid.Row="0"/>
+                            <Label Text="One way"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Margin="0,40,0,0"
+                               Grid.Column="0" Grid.Row="0"/>
+
+                            <Label Text="Discount: "
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Margin="0,0,0,0"
+                               Grid.Column="0" Grid.Row="1"/>
+                            <Label Text="Student"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Margin="0,40,0,0"
+                               Grid.Column="0" Grid.Row="1"/>
+
+                            <Label Text="Duration"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Grid.Column="1" Grid.Row="0"/>
+                            <Label Text="2h 7m"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Margin="0,40,0,0"
+                               Grid.Column="1" Grid.Row="0"/>
+
+                            <Label Text="Fare"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Grid.Column="1" Grid.Row="1"/>
+                            <Label Text="₱12"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               FontSize="30"
+                               TextColor="Black"
+                               Margin="0,40,0,0"
+                               Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+
+                        <Frame CornerRadius="20" HasShadow="True" Padding="5" BorderColor="#858DA1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="traindb.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit"/>
+                                <Image Source="orig.png" Grid.Column="0" Grid.Row="1" Aspect="AspectFit"/>
+                                <Image Source="dest.png" Grid.Column="0" Grid.Row="2" Aspect="AspectFit"/>
+                                <Label  FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold" TextColor="#38465F" Grid.Column="1" Grid.Row="0" FontSize="30" Margin="0,5,10,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="1" FontSize="26" Margin="0,10,0,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="2" FontSize="26" Margin="0,10,0,0"/>
+
+                            </Grid>
+                        </Frame>
+                        <Frame CornerRadius="20" HasShadow="True" Padding="5" BorderColor="#858DA1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="traindb.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit"/>
+                                <Image Source="orig.png" Grid.Column="0" Grid.Row="1" Aspect="AspectFit"/>
+                                <Image Source="dest.png" Grid.Column="0" Grid.Row="2" Aspect="AspectFit"/>
+                                <Label  FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold" TextColor="#38465F" Grid.Column="1" Grid.Row="0" FontSize="30" Margin="0,5,10,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="1" FontSize="26" Margin="0,10,0,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="2" FontSize="26" Margin="0,10,0,0"/>
+
+                            </Grid>
+                        </Frame>
+                        <Frame CornerRadius="20" HasShadow="True" Padding="5" BorderColor="#858DA1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="traindb.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit"/>
+                                <Image Source="orig.png" Grid.Column="0" Grid.Row="1" Aspect="AspectFit"/>
+                                <Image Source="dest.png" Grid.Column="0" Grid.Row="2" Aspect="AspectFit"/>
+                                <Label  FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold" TextColor="#38465F" Grid.Column="1" Grid.Row="0" FontSize="30" Margin="0,5,10,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="1" FontSize="26" Margin="0,10,0,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="2" FontSize="26" Margin="0,10,0,0"/>
+                            </Grid>
+                        </Frame>
+                        <Frame CornerRadius="20" HasShadow="True" Padding="5" BorderColor="#858DA1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="traindb.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit"/>
+                                <Image Source="orig.png" Grid.Column="0" Grid.Row="1" Aspect="AspectFit"/>
+                                <Image Source="dest.png" Grid.Column="0" Grid.Row="2" Aspect="AspectFit"/>
+                                <Label  FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold" TextColor="#38465F" Grid.Column="1" Grid.Row="0" FontSize="30" Margin="0,5,10,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="1" FontSize="26" Margin="0,10,0,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="2" FontSize="26" Margin="0,10,0,0"/>
+                            </Grid>
+                        </Frame>
+                        <Frame CornerRadius="20" HasShadow="True" Padding="5" BorderColor="#858DA1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                    <RowDefinition Height="3*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="traindb.png" Grid.Column="0" Grid.Row="0" Aspect="AspectFit"/>
+                                <Image Source="orig.png" Grid.Column="0" Grid.Row="1" Aspect="AspectFit"/>
+                                <Image Source="dest.png" Grid.Column="0" Grid.Row="2" Aspect="AspectFit"/>
+                                <Label  FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold" TextColor="#38465F" Grid.Column="1" Grid.Row="0" FontSize="30" Margin="0,5,10,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="1" FontSize="26" Margin="0,10,0,0"/>
+                                <Label FontFamily="SF-Compact-Text-Medium.otf#SF Compact Text Medium" TextColor="#38465F" Grid.Column="1" Grid.Row="2" FontSize="26" Margin="0,10,0,0"/>
+                            </Grid>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+
+                </StackLayout>
+            </controls:BottomDrawer>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

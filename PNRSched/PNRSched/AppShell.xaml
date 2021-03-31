@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:PNRSched"
+       x:Class="PNRSched.AppShell"
+       Shell.BackgroundColor="White"
+       Shell.NavBarIsVisible="False"
+       Shell.TabBarBackgroundColor="#FFC570"
+       Shell.TabBarTitleColor="Black"
+       Shell.TabBarUnselectedColor="Gray">
+
+    <TabBar x:Name="mainTABBAR">
+        <Tab Title="Tutuban-GP" Icon="twotone_train_black_48dp.png" >
+            <ShellContent ContentTemplate="{DataTemplate local:TutubanGP}"/>
+        </Tab>
+
+        <Tab Title="GP-Tutuban" Icon="twotone_train_black_48dp.png" >
+            <ShellContent ContentTemplate="{DataTemplate local:GPTutuban}"/>
+        </Tab>
+
+        <Tab Title="Bicutan-GP" Icon="twotone_train_black_48dp.png" >
+            <ShellContent ContentTemplate="{DataTemplate local:GPBicutan}"/>
+            <!--taguig malabon-->
+        </Tab>
+
+        <Tab Title="GP-Bicutan" Icon="twotone_train_black_48dp.png" >
+            <ShellContent ContentTemplate="{DataTemplate local:GovPascualTaguig}"/>
+        </Tab>
+
+        <Tab Title="About" Icon="about.png">
+            <ShellContent ContentTemplate="{DataTemplate local:About}"/>
+        </Tab>
+    </TabBar>
+</Shell>

@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PNRSched"
+             x:Class="PNRSched.GPBicutan"
+             Shell.NavBarIsVisible="False"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:controls="clr-namespace:Xam.Plugin.SimpleBottomDrawer;assembly=Xam.Plugin.SimpleBottomDrawer"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#FFC570"
+             Visual="Material">
+
+    <ContentPage.Content>
+        <yummy:PancakeView BackgroundColor="White"
+                               CornerRadius="0,0,50,50"
+                               Padding="0"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                           Margin="0,0,0,10">
+            <RelativeLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="9.5*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4.5*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <ffimageloading:CachedImage Source="pnr_tren.png"
+                       Aspect="AspectFit"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Grid.ColumnSpan="2"/>
+
+                    <Label Margin="20,0,20,0"
+                       Text="Where will be&#10;your next trip?"
+                       FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       Grid.Row="1"
+                       x:Name="labelHEAD"/>
+
+                    <Picker Margin="20,0,20,0"
+                            Title="From"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="0"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="2"
+                            FontFamily="SF-Compact-Text-Medium.otf# SF Compact Text Medium"
+                            x:Name="pckrORIGIN">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>BICUTAN</x:String>
+                                <x:String>FTI</x:String>
+                                <x:String>NICHOLS</x:String>
+                                <x:String>EDSA</x:String>
+                                <x:String>PASAY ROAD</x:String>
+                                <x:String>DELA ROSA</x:String>
+                                <x:String>VITO CRUZ</x:String>
+                                <x:String>SAN ANDRES</x:String>
+                                <x:String>PACO</x:String>
+                                <x:String>PANDACAN</x:String>
+                                <x:String>STA. MESA</x:String>
+                                <x:String>ESPAÑA</x:String>
+                                <x:String>LAON LAAN</x:String>
+                                <x:String>BLUMENTRITT</x:String>
+                                <x:String>SOLIS</x:String>
+                                <x:String>5TH AVENUE</x:String>
+                                <x:String>ASISTIO</x:String>
+                                <x:String>SANGANDAAN</x:String>
+                                <x:String>GOV. PASCUAL</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Picker Margin="20,0,20,0"
+                            Title="To"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Grid.Column="0"
+                            Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            FontFamily="SF-Compact-Text-Medium.otf# SF Compact Text Medium"
+                            x:Name="pckrDEST">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>BICUTAN</x:String>
+                                <x:String>FTI</x:String>
+                                <x:String>NICHOLS</x:String>
+                                <x:String>EDSA</x:String>
+                                <x:String>PASAY ROAD</x:String>
+                                <x:String>DELA ROSA</x:String>
+                                <x:String>VITO CRUZ</x:String>
+                                <x:String>SAN ANDRES</x:String>
+                                <x:String>PACO</x:String>
+                                <x:String>PANDACAN</x:String>
+                                <x:String>STA. MESA</x:String>
+                                <x:String>ESPAÑA</x:String>
+                                <x:String>LAON LAAN</x:String>
+                                <x:String>BLUMENTRITT</x:String>
+                                <x:String>SOLIS</x:String>
+                                <x:String>5TH AVENUE</x:String>
+                                <x:String>ASISTIO</x:String>
+                                <x:String>SANGANDAAN</x:String>
+                                <x:String>GOV. PASCUAL</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Image Source="orig_loc.png"
+                           Aspect="AspectFit"
+                           Grid.Column="1"
+                           Grid.Row="2"
+                           Margin="0,0,20,10"/>
+
+                    <Image Source="dest_loc.png"
+                           Aspect="AspectFit"
+                           Grid.Column="1"
+                           Grid.Row="3"
+                           Margin="0,0,20,10"/>
+
+                    <Entry Margin="20,0,20,0"
+                                x:Name="entryTIME1"
+                                HorizontalOptions="FillAndExpand"
+                                Placeholder="When"
+                                FontFamily="SF-Compact-Text-Medium.otf# SF Compact Text Medium"
+                                Grid.Column="0"
+                                Grid.Row="4"
+                                Grid.ColumnSpan="2"
+                                Focused="entryTIME1_Focused"
+                                BackgroundColor="White"/>
+
+                    <Image Source="calendar.png"
+                       Grid.Column="1"
+                       Grid.Row="4"
+                       Aspect="AspectFit"
+                       Margin="0,0,20,10"/>
+
+                    <TimePicker Grid.Column="0"
+                         Grid.Row="4"
+                         Grid.ColumnSpan="2"
+                         Margin="20,0,20,10"
+                         x:Name="timePCKR"
+                         IsVisible="False"
+                         IsEnabled="False"
+                         Focused="timePCKR_Focused"/>
+
+                    <yummy:PancakeView CornerRadius="80,0,0,80"
+                                   HorizontalOptions="End"
+                                   Grid.Column="0"
+                                   Grid.Row="6"
+                                   Margin="0,0,0,10"
+                                   Grid.ColumnSpan="2"
+                                   WidthRequest="180">
+
+                        <local:GradientButton Text="View Schedule"
+                                             TextColor="White"
+                                             StartColor="#FFA927"
+                                             EndColor="#FFD391"
+                                             GradientOrientation="Horizontal"
+                                             Clicked="GradientButton_Clicked"
+                                             Visual="Default"/>
+                    </yummy:PancakeView>
+                </Grid>
+
+                <controls:BottomDrawer
+                Padding="0"
+                x:Name="bottomSheet"
+                BackgroundColor="White"
+                CornerRadius="20"
+                HasShadow="True"
+                IsVisible="False"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                       Property=Height,
+                                                                       Factor=1,
+                                                                       Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                      Property=Width,
+                                                                      Factor=1,
+                                                                      Constant=0}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Height,
+                                                                  Factor=.9,
+                                                                  Constant=0}">
+                    <StackLayout>
+                        <BoxView
+                        Margin="20,16,20,-5"
+                        BackgroundColor="DimGray"
+                        CornerRadius="2"
+                        HeightRequest="3"
+                        HorizontalOptions="Center"
+                        WidthRequest="100" />
+                        <Label
+                        Margin="16"
+                        FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                        FontSize="35"
+                        Text="Your itinerary:"
+                        TextColor="Black"/>
+
+                        <ScrollView x:Name="sview1" Orientation="Vertical">
+                            <StackLayout Margin="10,5,10,0" HeightRequest="1900" Spacing="20">
+                                <Grid Margin="10,0,10,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".5*"/>
+                                        <ColumnDefinition Width=".5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="75"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Text="Origin"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource HeaderItinerary}"
+                               TextColor="Black"
+                               Grid.Column="0" Grid.Row="0"/>
+
+                                    <Label x:Name="labelORIG"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               Style="{StaticResource ContentItinerary}"
+                               TextColor="Black"
+                               Grid.Column="0" Grid.Row="0"
+                                Margin="0,40,0,0"/>
+
+                                    <Label Text="Duration"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource HeaderItinerary}"
+                               TextColor="Black"
+                               Grid.Column="0" Grid.Row="1"/>
+
+                                    <Label x:Name="labelDURATION"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               Style="{StaticResource ContentItinerary}"
+                               TextColor="Black"
+                               Margin="0,40,0,0"
+                               Grid.Column="0" Grid.Row="1"/>
+
+                                    <Label Text="Destination"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource HeaderItinerary}"
+                               TextColor="Black"
+                               Grid.Column="1" Grid.Row="0"
+                               Margin="40,0,0,0"/>
+                                    <Label x:Name="labelDEST"
+                               Text="SOLIS"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               Style="{StaticResource ContentItinerary}"
+                               TextColor="Black"
+                               Margin="40,40,0,0"
+                               Grid.Column="1" Grid.Row="0"/>
+
+
+                                    <Label Text="Fare"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource HeaderItinerary}"
+                               TextColor="Black"
+                               Grid.Column="1" Grid.Row="1"
+                               Margin="40,0,0,0"/>
+                                    <Label Text="₱12"
+                               FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                               Style="{StaticResource ContentItinerary}"
+                               TextColor="Black"
+                               Margin="40,40,0,0"
+                               Grid.Column="1" Grid.Row="1"/>
+
+                                    <Label Text="Arrival of train on origin"
+                               FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                               Style="{StaticResource TrainLocSched}"
+                               TextColor="Black"
+                               Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
+                               x:Name="labelCLOSESTTIME"
+                               Margin="0,10,0,0"/>
+
+                                    <Label Text="Approximate location&#10;of train"
+                                x:Name="labelLOCTRAIN"
+                                FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                Style="{StaticResource TrainLocSched}"
+                                TextColor="Black"
+                                Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                                Margin="0,0,0,20"/>
+                                </Grid>
+                                <!--dito simula ng frames ng schedules-->
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="firstTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="firstORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                            Grid.Column="1" Grid.Row="2"
+                                            Style="{StaticResource ContentSched}"/>
+
+                                        <Label x:Name="firstDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="2"
+                                           Style="{StaticResource ContentSched}"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="secondTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="secondORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="secondDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="thirdTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="thirdORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="thirdDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="fourthTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="fourthORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="fourthDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="fifthTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="fifthORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="fifthDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="sixthTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="sixthORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="sixthDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="seventhTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="seventhORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="seventhDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+
+                                <Frame BackgroundColor="White" HeightRequest="150" HasShadow="True" Padding="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="25"/>
+                                            <RowDefinition Height="100"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="20"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <BoxView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                             HorizontalOptions="Start"
+                                             BackgroundColor="#FFA927"/>
+
+                                        <Label x:Name="eighthTRAIN"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource labelTNO}"/>
+
+                                        <Label Text="Departure:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="1" Grid.Row="1" />
+
+                                        <Label Text="Arrival:"
+                                           TextColor="Black"
+                                           FontFamily="SF-UI-Display-Regular.otf#SF UI Display Regular"
+                                           Style="{StaticResource HeaderSched}"
+                                           Margin="10,0,0,0"
+                                           Grid.Column="2" Grid.Row="1"/>
+
+                                        <Label x:Name="eighthORIG"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                            Grid.Column="1" Grid.Row="2"/>
+
+                                        <Label x:Name="eighthDEST"
+                                           FontFamily="SF-UI-Display-Bold.otf#SF UI Display Bold"
+                                           TextColor="Black"
+                                           Margin="10,0,0,0"
+                                           Style="{StaticResource ContentSched}"
+                                           Grid.Column="2" Grid.Row="2"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </ScrollView>
+                    </StackLayout>
+                </controls:BottomDrawer>
+            </RelativeLayout>
+        </yummy:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

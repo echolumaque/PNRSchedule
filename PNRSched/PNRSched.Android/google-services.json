@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "454548572123",
+    "firebase_url": "https://pnr-schedule.firebaseio.com",
+    "project_id": "pnr-schedule",
+    "storage_bucket": "pnr-schedule.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454548572123:android:158fe0105c20276e4849fe",
+        "android_client_info": {
+          "package_name": "com.EchoLumaque.PNRSched.Android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454548572123-11ihgfh5nadmloi6anlbtrmksg9qdh5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcJHGZ8bqYkubUR_46qz2wyjhV3GJoqQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454548572123-11ihgfh5nadmloi6anlbtrmksg9qdh5p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+splash screen muna ng pnr
+then main page
+
+for gp to divi
+<grid>
+search // label, inside a frame
+enter origin - picker // inside a frame
+enter destination - picker // inside a frame
+departure time // label
+time picker
+closest time na dating ng tren depende sa origin // label
+approximate na loc ng tren depende sa oras // label
+find train // button
+see full sched// button
+full sched for orig - desti // scrollview which is in new page
+</grid>
+
+dadaan sa conditional yung papakita sa carouselview
+
+<carouselview vertical>
+frame train number + train number / 4 pcs.
+</scrollview>
+
+if picker selected origin is gp and picker selected dest is gp
+return gp na may orig at dest
+
+additonals: closest time available depending on device's time, present where is the current location of the train.
+
+e.g. 10:30am ngayon, tas next train is 11:30
+
+dapat lalabs si 11:30am
+
+if(datetime.now < sched1)
+
+ang dating ng tren sa solis is 4:05
+times is 4:03
+
+dapat ang lalabas is nasa tutuban
+solis time  < actual time
